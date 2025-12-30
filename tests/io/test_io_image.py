@@ -197,8 +197,6 @@ class TestIoImage:
         write_image(file_path, img_th)
 
         assert file_path.is_file()
-        # TODO: Add ticket to kornia-rs to fix loading back uint16 images
-        # Need to fix kornia-rs - test will fail until backend supports uint16 loading
         img_load = load_image(file_path, ImageLoadType.UNCHANGED)
         assert img_load.shape == img_th.shape
         assert img_load.dtype == torch.uint16
@@ -213,8 +211,6 @@ class TestIoImage:
         write_image(file_path, img_th)
 
         assert file_path.is_file()
-        # TODO: Add ticket to kornia-rs to fix loading back float32 images
-        # Need to fix kornia-rs - test will fail until backend supports float32 loading
         img_load = load_image(file_path, ImageLoadType.UNCHANGED)
         assert img_load.shape == img_th.shape
         assert img_load.dtype == torch.float32
